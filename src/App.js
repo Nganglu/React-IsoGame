@@ -1,23 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
+import IsoGrid from './components/IsoGrid.tsx';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <IsoGrid tileSize='64' numOfRows='6' numOfCols='5'/>
     </div>
   );
 }
