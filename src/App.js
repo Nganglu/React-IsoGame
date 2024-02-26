@@ -1,11 +1,11 @@
 import './App.css';
-import IsoGrid from './components/IsoGrid.tsx';
+import IsoLevel from './components/IsoLevel.tsx';
+import IsoMap from './components/IsoLevel.tsx';
 
 function App() {
   return (
     <div className="App">
-      <IsoGrid tileSize='64' numOfRows='6' numOfCols='5' zLevel={0}/>
-      <IsoGrid tileSize='64' numOfRows='6' numOfCols='5' zLevel={1}/>
+      <IsoLevel />
     </div>
   );
 }

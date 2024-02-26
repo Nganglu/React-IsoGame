@@ -6,29 +6,38 @@ interface IsoGrid {
   tileSize: number;
   numOfRows: number;
   numOfCols: number;
-  zLevel: number;
+  zLayer: number;
 }
 
-const IsoGrid: React.FC<IsoGrid> = ({tileSize,numOfRows,numOfCols,zLevel}) => {
-  const tiles: JSX.Element[] = [];
+interface TileData {
+  type: string;
+  subtype: string;
+}
+
+const IsoGrid: React.FC<IsoGrid> = ({ tileSize, numOfRows, numOfCols, zLayer }) => {
+  const grid: JSX.Element[] = [];
 
   for (let x = 0; x < numOfRows; x++) {
     for (let y = 0; y < numOfCols; y++) {
-      const zOffset = zLevel * -(tileSize/2);
+      const tileData: TileData = { type: "Floor", subtype: "Wood01" };
+      
+      const zLayerOffset = -(zLayer * tileSize/2);
 
-      const isoX = (x * 0.5 * tileSize) + (y * -0.5 * tileSize);
-      const isoY = (x * 0.25 * tileSize) + (y * 0.25 * tileSize) + zOffset;
-
-      tiles.push(
+      grid.push(
         <Tile
-          x={isoX}
-          y={isoY}
+          key={`${x}-${y}`}
+          x={x}
+          y={y}
+          tileSize={tileSize}
+          type={tileData.type}
+          subtype={tileData.subtype}
+          zOffset={zLayerOffset}
         />
       );
     }
   }
 
-  return <div className="iso-grid">{tiles}</div>;
+  return <div className="iso-grid">{grid}</div>;
 };
 
 export default IsoGrid;
