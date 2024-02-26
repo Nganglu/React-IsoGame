@@ -9,14 +9,15 @@ interface IsoGrid {
   zLevel: number;
 }
 
-const IsoGrid: React.FC<IsoGrid> = ({tileSize,numOfRows,numOfCols}) => {
+const IsoGrid: React.FC<IsoGrid> = ({tileSize,numOfRows,numOfCols,zLevel}) => {
   const tiles: JSX.Element[] = [];
 
   for (let x = 0; x < numOfRows; x++) {
     for (let y = 0; y < numOfCols; y++) {
+      const zOffset = zLevel * -(tileSize/2);
 
       const isoX = (x * 0.5 * tileSize) + (y * -0.5 * tileSize);
-      const isoY = (x * 0.25 * tileSize) + (y * 0.25 * tileSize);
+      const isoY = (x * 0.25 * tileSize) + (y * 0.25 * tileSize) + zOffset;
 
       tiles.push(
         <Tile
