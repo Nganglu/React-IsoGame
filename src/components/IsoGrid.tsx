@@ -19,13 +19,13 @@ const IsoGrid: React.FC<IsoGrid> = ({ tileSize, numOfRows, numOfCols, zLayer }) 
 
   for (let x = 0; x < numOfRows; x++) {
     for (let y = 0; y < numOfCols; y++) {
-      const tileData: TileData = { type: "Floor", subtype: "Wood01" };
+      const tileData: TileData = { type: "Floor", subtype: "Wood01" }; // type 
       
       const zLayerOffset = -(zLayer * tileSize/2);
 
       grid.push(
         <Tile
-          key={`${x}-${y}`}
+          key={`${x}-${y}-${zLayer}`}
           x={x}
           y={y}
           tileSize={tileSize}
