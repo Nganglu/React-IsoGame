@@ -8,6 +8,7 @@ interface Tile {
     subtype: string;
     tileSize: number;
     zOffset: number;
+    //isFloor: boolean; -isWalkeable will be set by map if isFloor and layer 1 is unobstructed
 }
 
 const Tile: React.FC<Tile> = ({ x,y,type,subtype,tileSize,zOffset }) => {

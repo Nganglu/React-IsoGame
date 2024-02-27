@@ -5,7 +5,7 @@ import IsoMap from './components/IsoLevel.tsx';
 function App() {
   return (
     <div className="App">
-      <IsoLevel />
+      <IsoLevel levelData=""/>
     </div>
   );
 }

@@ -19,8 +19,13 @@ const IsoLevel: React.FC<IsoLevel> = (LevelData) => {
     tileSize: 64,
     numOfCols: 6,
     numOfRows: 7,
-    zLayers: []
+    zLayers: [] //zLayers: [ layer: [{type,subtype},{type,subtype},{...}], layer:[{},{}]]
   };
+
+  // first index = z, second is x, third is tile data
+  const loadMap = function() {
+    
+  }
 
 
   return (
