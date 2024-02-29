@@ -1,6 +1,6 @@
 .tile{
+    /* pointer-events: none; !! It's blocking mouseEvent you genius... */
     position: absolute;
-    pointer-events: none;
     width: 64px;
     height: 64px;
 }

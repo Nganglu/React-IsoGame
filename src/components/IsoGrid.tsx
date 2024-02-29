@@ -20,8 +20,7 @@ const IsoGrid: React.FC<IsoGrid> = ({ tileSize, numOfRows, numOfCols, zLayer }) 
   for (let x = 0; x < numOfRows; x++) {
     for (let y = 0; y < numOfCols; y++) {
       const tileData: TileData = { type: "Floor", subtype: "Wood01" };
-      
-      const zLayerOffset = -(zLayer * tileSize/2);
+
 
       grid.push(
         <Tile
@@ -31,13 +30,13 @@ const IsoGrid: React.FC<IsoGrid> = ({ tileSize, numOfRows, numOfCols, zLayer }) 
           tileSize={tileSize}
           type={tileData.type}
           subtype={tileData.subtype}
-          zOffset={zLayerOffset}
         />
       );
     }
   }
+  const zLayerOffset = -(zLayer * tileSize / 2);
 
-  return <div className="iso-grid">{grid}</div>;
+  return <div className="iso-grid" style={{ top: `${zLayerOffset}px` }}>{grid}</div>;
 };
 
 export default IsoGrid;

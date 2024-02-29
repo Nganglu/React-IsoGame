@@ -9,8 +9,8 @@ interface LevelData {
   tileSize: number;
   numOfCols: number;
   numOfRows: number;
-  zLayers:{
-    layer: { type: string; subtype: string} [][]
+  zLayers: {
+    layer: { type: string; subtype: string }[][]
   }[];
 }
 
@@ -23,8 +23,8 @@ const IsoLevel: React.FC<IsoLevel> = (LevelData) => {
   };
 
   // first index = z, second is x, third is tile data
-  const loadMap = function() {
-    
+  const loadMap = function () {
+
   }
 
 

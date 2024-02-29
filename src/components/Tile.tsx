@@ -1,28 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Tile.css";
 
 interface Tile {
-    x: number;
-    y: number;
-    type: string;
-    subtype: string;
-    tileSize: number;
-    zOffset: number;
-    //isFloor: boolean; -isWalkeable will be set by map if isFloor and layer 1 is unobstructed
+  x: number;
+  y: number;
+  type: string;
+  subtype: string;
+  tileSize: number;
 }
 
-const Tile: React.FC<Tile> = ({ x,y,type,subtype,tileSize,zOffset }) => {
+const Tile: React.FC<Tile> = ({ x, y, type, subtype, tileSize }) => {
+  const [zOffset, setZOffset] = useState(0);
 
-    const xOriginOffset = tileSize/2;
-    const yOriginOffset = tileSize/4;
+  const toggleZOffset = () => {
+    setZOffset(zOffset === 0 ? -30 : 0);
+  }
 
-    const isoX = (x * 0.5 * tileSize) + (y * -0.5 * tileSize) - xOriginOffset;
-    const isoY = (x * 0.25 * tileSize) + (y * 0.25 * tileSize) - yOriginOffset + zOffset;
+  const xOriginOffset = tileSize / 2;
+  const yOriginOffset = tileSize / 4;
 
-    return (
-      <div className="tile" style={{ left: `${isoX}px`, top: `${isoY}px` }}>
-        <img src={`/assets/Tile-${type}_${subtype}.png`} alt="${type}_${subtype}" />
-      </div>
-    );
+  const isoX = (x * 0.5 * tileSize) + (y * -0.5 * tileSize) - xOriginOffset;
+  const isoY = (x * 0.25 * tileSize) + (y * 0.25 * tileSize) - yOriginOffset;
+
+  console.log(zOffset);
+
+  return (
+    <div className="tile" style={{ left: `${isoX}px`, top: `${isoY + zOffset}px` }} onClick={toggleZOffset}>
+      <img src={`/assets/Tile-${type}_${subtype}.png`} alt="${type}_${subtype}"/>
+    </div>
+  ); 
+
 };
 export default Tile;

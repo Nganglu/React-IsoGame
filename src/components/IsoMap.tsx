@@ -3,14 +3,14 @@ import "./IsoMap.css";
 import Tile from "./Tile";
 
 interface tileData {
-    [key:string]: Tile;
+    [key: string]: Tile;
 }
 
-class IsoMap{
+class IsoMap {
     tileSize: number;
     xSize: number;
     ySize: number;
-    
+
     isoMap: IsoMap;
 
     constructor(LevelData) {
